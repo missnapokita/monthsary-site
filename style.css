@@ -99,7 +99,7 @@ li {
     z-index: 0;
 }
 
-/* 💖 NEW: OUR FIRST MEET STYLE */
+/* 💖 OUR FIRST MEET STYLE */
 .place-text {
     font-size: 14px;
     margin-bottom: 10px;
@@ -114,4 +114,11 @@ li {
     border: none;
     width: 100%;
     margin-top: 5px;
+}
+
+/* 💖 STORY BUTTON (ADDED FIX) */
+.story-btn {
+    background: #ff6699;
+    margin-top: 10px;
+    width: 100%;
 }
