@@ -28,7 +28,6 @@ setInterval(() => {
 // INITIAL
 slide.src = images[0];
 
-
 // 👉 SWIPE SUPPORT (MOBILE)
 let startX = 0;
 
@@ -48,7 +47,6 @@ slide.addEventListener("touchend", (e) => {
     }
 });
 
-
 // 💕 COUNTDOWN
 const targetDate = new Date("2026-05-01");
 
@@ -62,24 +60,25 @@ setInterval(() => {
         "Next monthsary in " + days + " days 💕";
 }, 1000);
 
-
 // 💖 CLICK HEART
 function showLove() {
     alert("I love you so much, Mahal 💖🥺");
 }
-
 
 // 🌙 DARK MODE
 function toggleMode() {
     document.body.classList.toggle("dark");
 }
 
-
-// 💖 STORY PAGE FUNCTION
+// 💖 STORY PAGE FUNCTION (UNCHANGED)
 function openStory() {
     window.location.href = "story.html";
 }
 
+// 💖 NEW: STORYLINE ALERT (ADDED LANG)
+function showStory() {
+    alert("Simula nung nag meet tayo, nagbago lahat... ikaw ang pinaka magandang nangyari sa buhay ko 💖🥺");
+}
 
 // ✍️ TYPING EFFECT (PRO VERSION)
 window.addEventListener("load", () => {
@@ -116,7 +115,6 @@ window.addEventListener("load", () => {
 
     typeLine();
 });
-
 
 // 🎆 CONFETTI
 const canvas = document.getElementById("confetti");
