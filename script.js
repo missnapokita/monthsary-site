@@ -63,50 +63,6 @@ setInterval(() => {
 }, 1000);
 
 
-// 💌 SAVE MESSAGE
-function saveMessage() {
-    const input = document.getElementById("msgInput");
-    const msg = input.value.trim();
-
-    if (msg === "") {
-        alert("Mag type ka muna 😅");
-        return;
-    }
-
-    let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
-
-    messages.push(msg);
-
-    localStorage.setItem("loveMsgs", JSON.stringify(messages));
-
-    input.value = "";
-
-    loadMessages();
-}
-
-
-// 💌 LOAD MESSAGE
-function loadMessages() {
-    let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
-    const list = document.getElementById("messages");
-
-    list.innerHTML = "";
-
-    if (messages.length === 0) {
-        list.innerHTML = "<li>No messages yet 💔</li>";
-        return;
-    }
-
-    messages.slice().reverse().forEach(m => {
-        const li = document.createElement("li");
-        li.textContent = "💖 " + m;
-        list.appendChild(li);
-    });
-}
-
-loadMessages();
-
-
 // 💖 CLICK HEART
 function showLove() {
     alert("I love you so much, Mahal 💖🥺");
@@ -119,13 +75,13 @@ function toggleMode() {
 }
 
 
-// 💖 NEW: STORY PAGE FUNCTION (ADDED)
+// 💖 STORY PAGE FUNCTION
 function openStory() {
     window.location.href = "story.html";
 }
 
 
-// ✍️ TYPING EFFECT (PRO VERSION - PER LINE)
+// ✍️ TYPING EFFECT (PRO VERSION)
 window.addEventListener("load", () => {
 
     const lines = [
