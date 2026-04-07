@@ -55,7 +55,7 @@ function saveMessage() {
     console.log("Saved:", messages);
 }
 
-// 💌 LOAD MESSAGE (FIXED)
+// 💌 LOAD MESSAGE (FIXED 100%)
 function loadMessages() {
     let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
     const list = document.getElementById("messages");
@@ -63,7 +63,7 @@ function loadMessages() {
     list.innerHTML = "";
 
     if (messages.length === 0) {
-        list.innerHTML = "<li>💔 No messages yet...</li>";
+        list.innerHTML = "<li>No messages yet 💔</li>";
         return;
     }
 
