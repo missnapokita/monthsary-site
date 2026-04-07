@@ -2,37 +2,38 @@
 <html>
 <head>
     <title>Happy 3rd Monthsary ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="hearts"></div>
+<canvas id="confetti"></canvas>
+
+<div class="hearts" onclick="showLove()"></div>
+
+<div class="toggle" onclick="toggleMode()">🌙</div>
 
 <div class="card">
     <h1>Happy 3rd Monthsary, Maureen 💖</h1>
 
-    <p class="love-text">
-    Thank you for being with me. I appreciate every moment with you 🥺❤️
-    </p>
+    <!-- TYPING EFFECT -->
+    <p id="typing"></p>
 
-    <!-- SLIDESHOW -->
-    <div class="slideshow">
+    <div class="slider">
         <img id="slide">
     </div>
 
-    <!-- COUNTDOWN -->
     <h2 id="countdown"></h2>
 
-    <!-- MESSAGE -->
     <textarea id="msgInput" placeholder="Leave a message 💌"></textarea>
-    <button onclick="sendMessage()">Send 💖</button>
+    <button onclick="saveMessage()">Send 💖</button>
 
     <h3>Our Messages:</h3>
     <ul id="messages"></ul>
 </div>
 
 <audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+  <source src="https://github.com/missnapokita/july25/raw/refs/heads/main/SUGARCANE%20-%20Leonora%20(Lyrics)%20(1).mp3">
 </audio>
 
 <script src="script.js"></script>
