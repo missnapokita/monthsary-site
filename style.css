@@ -1,1 +1,72 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
+}
 
+.card {
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255,0,100,0.3);
+}
+
+h1 {
+    color: #ff0066;
+}
+
+.love-text {
+    font-size: 16px;
+}
+
+.slideshow img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 10px pink;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background: #ff0066;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+li {
+    text-align: left;
+}
+
+/* FLOATING HEARTS */
+.hearts::before {
+    content: "💖 💕 💘 💗 💓";
+    position: fixed;
+    animation: float 6s infinite linear;
+    font-size: 25px;
+}
+
+@keyframes float {
+    0% { top: 100%; left: 0%; }
+    100% { top: -10%; left: 100%; }
+}
