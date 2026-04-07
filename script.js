@@ -78,7 +78,7 @@ loadMessages();
 
 // 💖 CLICK HEART
 function showLove() {
-    alert("I love you so much, Maureen 💖🥺");
+    alert("I love you so much, Mahal");
 }
 
 // 🌙 DARK MODE
@@ -87,7 +87,21 @@ function toggleMode() {
 }
 
 // ✍️ TYPING EFFECT
-const text = "Hi love, thank you for staying with me. I’m so lucky to have you. Happy 3rd monthsary 💖🥺";
+const text = "Mahal,
+
+Happy 3rd monthsary sa atin. ❤️
+Gusto ko lang sabihin na mahal na mahal kita, kahit minsan lagi mo akong inaaway. Kahit ganun, naiintindihan kita at mas lalo pa kitang minamahal sa bawat araw na lumilipas.
+
+Salamat kasi nandiyan ka palagi — sa saya, sa tampuhan, at kahit sa simpleng usapan natin. Kahit may mga maliit na away, alam ko na bahagi lang yun ng pagmamahalan natin, at mas lalo lang tayong tumitibay dahil doon.
+
+Ikaw yung dahilan kung bakit mas masaya ang araw ko. Kahit simpleng “kumain ka na ba” o “ingat ka,” sobrang halaga na nun para sa akin. Pinaparamdam mo sa akin na mahalaga ako, at sobra akong nagpapasalamat doon.
+
+Pangako ko na patuloy kitang iintindihin, aalagaan, at mamahalin — hindi lang ngayon, kundi sa mga susunod pang buwan at taon na darating.
+
+Mahal na mahal kita, Mahal. ❤️
+Happy 3rd monthsary ulit sa atin.
+
+— Mahal mo";
 let i = 0;
 
 function typeWriter() {
