@@ -98,3 +98,20 @@ li {
     pointer-events: none; /* 🔥 para di humarang */
     z-index: 0;
 }
+
+/* 💖 NEW: OUR FIRST MEET STYLE */
+.place-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ff3366;
+}
+
+.map-btn {
+    background: #ff4d88;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    margin-top: 5px;
+}
