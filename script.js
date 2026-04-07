@@ -1,23 +1,33 @@
-// 💖 SLIDER
+// 💖 SLIDER (FIXED + FADE EFFECT)
 const images = [
-"https://raw.githubusercontent.com/missnapokita/july25/refs/heads/main/IMG_20260209_204546.jpg",
-"https://raw.githubusercontent.com/missnapokita/july25/refs/heads/main/IMG_20260125_151632.jpg",
+"https://raw.githubusercontent.com/missnapokita/july25/main/IMG_20260209_204546.jpg",
+"https://raw.githubusercontent.com/missnapokita/july25/main/IMG_20260125_151632.jpg",
 "https://gpxcczvqsvngetixmlrx.supabase.co/storage/v1/object/public/maps/mot/IMG_3925.jpg",
 "https://gpxcczvqsvngetixmlrx.supabase.co/storage/v1/object/public/maps/mot/IMG_4553.png"
 ];
 
 let index = 0;
+const slide = document.getElementById("slide");
+
+// fade effect
+slide.style.transition = "opacity 0.8s ease-in-out";
 
 function showSlide() {
-    document.getElementById("slide").src = images[index];
+    slide.style.opacity = 0;
+
+    setTimeout(() => {
+        slide.src = images[index];
+        slide.style.opacity = 1;
+    }, 300);
 }
 
 setInterval(() => {
     index = (index + 1) % images.length;
     showSlide();
-}, 2500);
+}, 3000);
 
-showSlide();
+// initial load
+slide.src = images[0];
 
 // 💕 COUNTDOWN
 const targetDate = new Date("2026-05-01");
@@ -32,7 +42,7 @@ setInterval(() => {
         "Next monthsary in " + days + " days 💕";
 }, 1000);
 
-// 💌 SAVE MESSAGE (FIXED)
+// 💌 SAVE MESSAGE
 function saveMessage() {
     const input = document.getElementById("msgInput");
     const msg = input.value.trim();
@@ -51,11 +61,9 @@ function saveMessage() {
     input.value = "";
 
     loadMessages();
-
-    console.log("Saved:", messages);
 }
 
-// 💌 LOAD MESSAGE (FIXED)
+// 💌 LOAD MESSAGE
 function loadMessages() {
     let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
     const list = document.getElementById("messages");
@@ -86,22 +94,14 @@ function toggleMode() {
     document.body.classList.toggle("dark");
 }
 
-// ✍️ TYPING EFFECT (FIXED MULTILINE)
+// ✍️ TYPING EFFECT
 const text = `Mahal,
 
 Happy 3rd monthsary sa atin. ❤️
-Gusto ko lang sabihin na mahal na mahal kita, kahit minsan lagi mo akong inaaway. Kahit ganun, naiintindihan kita at mas lalo pa kitang minamahal sa bawat araw na lumilipas.
+Mahal na mahal kita kahit lagi mo akong inaaway 😅
+Pero kahit ganun, mas lalo pa kitang minamahal araw-araw.
 
-Salamat kasi nandiyan ka palagi — sa saya, sa tampuhan, at kahit sa simpleng usapan natin. Kahit may mga maliit na away, alam ko na bahagi lang yun ng pagmamahalan natin, at mas lalo lang tayong tumitibay dahil doon.
-
-Ikaw yung dahilan kung bakit mas masaya ang araw ko. Kahit simpleng “kumain ka na ba” o “ingat ka,” sobrang halaga na nun para sa akin. Pinaparamdam mo sa akin na mahalaga ako, at sobra akong nagpapasalamat doon.
-
-Pangako ko na patuloy kitang iintindihin, aalagaan, at mamahalin — hindi lang ngayon, kundi sa mga susunod pang buwan at taon na darating.
-
-Mahal na mahal kita, Mahal. ❤️
-Happy 3rd monthsary ulit sa atin.
-
-— Mahal mo`;
+Salamat kasi nandiyan ka palagi 💖`;
 
 let i = 0;
 
