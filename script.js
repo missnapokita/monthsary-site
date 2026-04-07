@@ -40,11 +40,9 @@ slide.addEventListener("touchend", (e) => {
     let endX = e.changedTouches[0].clientX;
 
     if (startX - endX > 50) {
-        // swipe left
         index = (index + 1) % images.length;
         showSlide();
     } else if (endX - startX > 50) {
-        // swipe right
         index = (index - 1 + images.length) % images.length;
         showSlide();
     }
@@ -121,6 +119,12 @@ function toggleMode() {
 }
 
 
+// 💖 NEW: STORY PAGE FUNCTION (ADDED)
+function openStory() {
+    window.location.href = "story.html";
+}
+
+
 // ✍️ TYPING EFFECT (PRO VERSION - PER LINE)
 window.addEventListener("load", () => {
 
@@ -150,7 +154,7 @@ window.addEventListener("load", () => {
             el.innerHTML += "<br>";
             lineIndex++;
             charIndex = 0;
-            setTimeout(typeLine, 500); // pause bawat line 🔥
+            setTimeout(typeLine, 500);
         }
     }
 
