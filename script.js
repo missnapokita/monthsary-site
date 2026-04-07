@@ -55,7 +55,7 @@ function saveMessage() {
     console.log("Saved:", messages);
 }
 
-// 💌 LOAD MESSAGE (FIXED 100%)
+// 💌 LOAD MESSAGE (FIXED)
 function loadMessages() {
     let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
     const list = document.getElementById("messages");
@@ -78,7 +78,7 @@ loadMessages();
 
 // 💖 CLICK HEART
 function showLove() {
-    alert("I love you so much, Mahal");
+    alert("I love you so much, Mahal 💖🥺");
 }
 
 // 🌙 DARK MODE
@@ -86,8 +86,8 @@ function toggleMode() {
     document.body.classList.toggle("dark");
 }
 
-// ✍️ TYPING EFFECT
-const text = "Mahal,
+// ✍️ TYPING EFFECT (FIXED MULTILINE)
+const text = `Mahal,
 
 Happy 3rd monthsary sa atin. ❤️
 Gusto ko lang sabihin na mahal na mahal kita, kahit minsan lagi mo akong inaaway. Kahit ganun, naiintindihan kita at mas lalo pa kitang minamahal sa bawat araw na lumilipas.
@@ -101,14 +101,15 @@ Pangako ko na patuloy kitang iintindihin, aalagaan, at mamahalin — hindi lang 
 Mahal na mahal kita, Mahal. ❤️
 Happy 3rd monthsary ulit sa atin.
 
-— Mahal mo";
+— Mahal mo`;
+
 let i = 0;
 
 function typeWriter() {
     if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 50);
+        setTimeout(typeWriter, 40);
     }
 }
 typeWriter();
