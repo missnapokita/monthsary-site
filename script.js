@@ -7,50 +7,73 @@ const images = [
 ];
 
 let index = 0;
+
 function showSlide() {
     document.getElementById("slide").src = images[index];
 }
+
 setInterval(() => {
     index = (index + 1) % images.length;
     showSlide();
 }, 2500);
+
 showSlide();
 
 // 💕 COUNTDOWN
 const targetDate = new Date("2026-05-01");
+
 setInterval(() => {
     const now = new Date();
     const diff = targetDate - now;
+
     const days = Math.floor(diff / (1000*60*60*24));
+
     document.getElementById("countdown").innerText =
         "Next monthsary in " + days + " days 💕";
 }, 1000);
 
-// 💌 LOCAL STORAGE
+// 💌 SAVE MESSAGE (FIXED)
 function saveMessage() {
     const input = document.getElementById("msgInput");
-    const msg = input.value;
-    if (!msg) return;
+    const msg = input.value.trim();
+
+    if (msg === "") {
+        alert("Mag type ka muna 😅");
+        return;
+    }
 
     let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
+
     messages.push(msg);
+
     localStorage.setItem("loveMsgs", JSON.stringify(messages));
 
     input.value = "";
+
     loadMessages();
+
+    console.log("Saved:", messages);
 }
 
+// 💌 LOAD MESSAGE (FIXED)
 function loadMessages() {
     let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
     const list = document.getElementById("messages");
+
     list.innerHTML = "";
 
-    messages.reverse().forEach(m => {
+    if (messages.length === 0) {
+        list.innerHTML = "<li>💔 No messages yet...</li>";
+        return;
+    }
+
+    messages.slice().reverse().forEach(m => {
         const li = document.createElement("li");
         li.textContent = "💖 " + m;
         list.appendChild(li);
     });
 }
+
 loadMessages();
 
 // 💖 CLICK HEART
@@ -79,10 +102,12 @@ typeWriter();
 // 🎆 CONFETTI
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let confetti = [];
+
 for (let i = 0; i < 100; i++) {
     confetti.push({
         x: Math.random() * canvas.width,
@@ -93,6 +118,7 @@ for (let i = 0; i < 100; i++) {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     ctx.fillStyle = "pink";
 
     confetti.forEach(c => {
