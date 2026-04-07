@@ -1,4 +1,4 @@
-// 💖 SLIDER (FIXED + FADE EFFECT)
+// 💖 SLIDER (SWIPE + FADE)
 const images = [
 "https://raw.githubusercontent.com/missnapokita/july25/main/IMG_20260209_204546.jpg",
 "https://raw.githubusercontent.com/missnapokita/july25/main/IMG_20260125_151632.jpg",
@@ -9,25 +9,47 @@ const images = [
 let index = 0;
 const slide = document.getElementById("slide");
 
-// fade effect
-slide.style.transition = "opacity 0.8s ease-in-out";
+slide.style.transition = "opacity 0.6s ease-in-out";
 
 function showSlide() {
     slide.style.opacity = 0;
-
     setTimeout(() => {
         slide.src = images[index];
         slide.style.opacity = 1;
-    }, 300);
+    }, 200);
 }
 
+// AUTO SLIDE
 setInterval(() => {
     index = (index + 1) % images.length;
     showSlide();
 }, 3000);
 
-// initial load
+// INITIAL
 slide.src = images[0];
+
+
+// 👉 SWIPE SUPPORT (MOBILE)
+let startX = 0;
+
+slide.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+
+slide.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+        // swipe left
+        index = (index + 1) % images.length;
+        showSlide();
+    } else if (endX - startX > 50) {
+        // swipe right
+        index = (index - 1 + images.length) % images.length;
+        showSlide();
+    }
+});
+
 
 // 💕 COUNTDOWN
 const targetDate = new Date("2026-05-01");
@@ -41,6 +63,7 @@ setInterval(() => {
     document.getElementById("countdown").innerText =
         "Next monthsary in " + days + " days 💕";
 }, 1000);
+
 
 // 💌 SAVE MESSAGE
 function saveMessage() {
@@ -63,6 +86,7 @@ function saveMessage() {
     loadMessages();
 }
 
+
 // 💌 LOAD MESSAGE
 function loadMessages() {
     let messages = JSON.parse(localStorage.getItem("loveMsgs")) || [];
@@ -84,35 +108,55 @@ function loadMessages() {
 
 loadMessages();
 
+
 // 💖 CLICK HEART
 function showLove() {
     alert("I love you so much, Mahal 💖🥺");
 }
+
 
 // 🌙 DARK MODE
 function toggleMode() {
     document.body.classList.toggle("dark");
 }
 
-// ✍️ TYPING EFFECT
-const text = `Mahal,
 
-Happy 3rd monthsary sa atin. ❤️
-Mahal na mahal kita kahit lagi mo akong inaaway 😅
-Pero kahit ganun, mas lalo pa kitang minamahal araw-araw.
+// ✍️ TYPING EFFECT (PRO VERSION - PER LINE)
+window.addEventListener("load", () => {
 
-Salamat kasi nandiyan ka palagi 💖`;
+    const lines = [
+        "Mahal,",
+        "",
+        "Happy 3rd monthsary sa atin. ❤️",
+        "Mahal na mahal kita kahit lagi mo akong inaaway 😅",
+        "Pero kahit ganun, mas lalo pa kitang minamahal araw-araw.",
+        "",
+        "Salamat kasi nandiyan ka palagi 💖"
+    ];
 
-let i = 0;
+    const el = document.getElementById("typing");
 
-function typeWriter() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 40);
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+        if (lineIndex >= lines.length) return;
+
+        if (charIndex < lines[lineIndex].length) {
+            el.innerHTML += lines[lineIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeLine, 40);
+        } else {
+            el.innerHTML += "<br>";
+            lineIndex++;
+            charIndex = 0;
+            setTimeout(typeLine, 500); // pause bawat line 🔥
+        }
     }
-}
-typeWriter();
+
+    typeLine();
+});
+
 
 // 🎆 CONFETTI
 const canvas = document.getElementById("confetti");
@@ -123,11 +167,11 @@ canvas.height = window.innerHeight;
 
 let confetti = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 80; i++) {
     confetti.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 6
+        r: Math.random() * 5
     });
 }
 
@@ -143,7 +187,7 @@ function draw() {
     });
 
     confetti.forEach(c => {
-        c.y += 2;
+        c.y += 1.5;
         if (c.y > canvas.height) c.y = 0;
     });
 }
